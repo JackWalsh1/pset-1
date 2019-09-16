@@ -28,7 +28,8 @@ public class ProblemSet1 {
          final double width = 11;
          final double inchToMillimeters = 645.16;
          final double area = length * width * inchToMillimeters;
-         System.out.printf("\n%,.2f %s\n", area, " square millimeters.");
+         System.out.printf("\n%,.2f %s\n", area, "square millimeters.");
+         //First portion is formatting the variable (area by "\n%,.2f") and second portion is formatting string ("square millimeters" by %s).
 
         /*
          * Exercise 2.
