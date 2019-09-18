@@ -72,7 +72,7 @@ public class ProblemSet1 {
          * Given the grading policy and the homework, quiz, and test grades I received,
          * what marking period grade will I get?
          *
-         *
+         * SOLVED
          *
          */
 
@@ -91,12 +91,11 @@ public class ProblemSet1 {
         final double testWeight = 0.50;
         NumberFormat percentFormat = NumberFormat.getPercentInstance();
         percentFormat.setMinimumFractionDigits(2);
-        double homeworkGrade = ((homework1 + homework2 + homework3) / 3) * homeworkWeight; //Should be
-        double quizGrade = ((quiz1 + quiz2 + quiz3) / 3 ) * .15;
-        double testGrade = ((test1 + test2 + test3) / 3) * .15;
-        System.out.println(homeworkGrade);
-        //double markingPeriodGrade = (homeworkWeight * homeworkAverage) + (quizWeight * quizAverage) + (testWeight * testAverage);
-        //System.out.println(defaultFormat.format(markingPeriodGrade));
+        double homeworkTotal = (homework1 + homework2 + homework3); //Should be
+        double quizTotal = (quiz1 + quiz2 + quiz3);
+        double testTotal = (test1 + test2 + test3);
+        double markingPeriodGrade = ((homeworkTotal / 3) * homeworkWeight)  + ((quizTotal / 3) * quizWeight) + ((testTotal / 3) * testWeight);
+        System.out.println("\n" + percentFormat.format(markingPeriodGrade / 100));
 
 
 
@@ -122,26 +121,44 @@ public class ProblemSet1 {
          double sundayHours = 0;
          double totalHours = mondayHours + tuesdayHours + wednesdayHours + thursdayHours + fridayHours + saturdayHours + sundayHours;
          double payment = totalHours * hourlyWage;
-         System.out.println(currencyFormat.format(payment) + ".");
-
-
+         System.out.println("\n" + currencyFormat.format(payment) + ".");
 
         /*
          * Exercise 6.
          *
          * What is my take-home pay each check?
+         *
+         * SOLVED
+         *
          */
 
-
+         //Using above formatting for currency.
+         final double salaryPerYear = 117000;
+         final double federalTaxRate = .24;
+         final double stateTaxRate = .0637;
+         final double preTax401Rate = .07;
+         double salaryPerCheck = 117000 / 24;
+         double preTaxSalary = (salaryPerCheck - (salaryPerCheck * preTax401Rate));
+         double takeHomePay = preTaxSalary * (1 - federalTaxRate) * (1 - stateTaxRate);
+         System.out.println("\n" + currencyFormat.format(takeHomePay) + ".");
 
         /*
          * Exercise 7.
          *
          * I am planning a class trip next month. How many buses do I need, and how many
          * people will be on the last bus?
+         *
+         * SOLVED
+         *
          */
 
-
+         final int students = 273;
+         final int teachers = 28;
+         final int busCapacity = 54;
+         int totalPeople = students + teachers;
+         int totalBuses = (totalPeople / busCapacity) + 1; //An additional bus is needed because totalPeople/54 is not an integer.
+         int lastBusPassengerCount = totalPeople % busCapacity;
+         System.out.println("\n" + totalBuses + " buses are needed, with " + lastBusPassengerCount + " passengers on the last bus.");
 
         /*
          * Exercise 8.
