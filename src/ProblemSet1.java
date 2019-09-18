@@ -14,6 +14,9 @@
 
  //Any abbreviations (ex. aIM) should be referenced above for meaning (areaInMillimeters).
 
+import java.text.NumberFormat;
+import java.lang.Math;
+
 public class ProblemSet1 {
 
     public static void main(String[] args) {
@@ -29,8 +32,8 @@ public class ProblemSet1 {
 
          final double length = 8.5;
          final double width = 11;
-         final double inchToMillimeters = 645.16;
-         final double area = length * width * inchToMillimeters;
+         final double inchToMillimeters = 25.4;
+         final double area = length * width * Math.pow(inchToMillimeters, 2);
          System.out.printf("\n%,.2f %s\n", area, "square millimeters.");
          /*First portion is formatting the variable (area by "\n%,.2f")
          and second portion is formatting string ("square millimeters" by %s).*/
@@ -54,15 +57,23 @@ public class ProblemSet1 {
          *
          * What is the length of the diagonal (in inches) between two corners on an 8.5-
          * by-11-inch sheet of paper?
+         *
+         * SOLVED
+         *
          */
 
-
+         //Using length / width of Exercise 1.
+         final double hypotenuse = Math.sqrt(Math.pow(length, 2) + Math.pow(width, 2));
+         System.out.printf("\n%.2f %s\n", hypotenuse, "inches." );
 
         /*
          * Exercise 4.
          *
          * Given the grading policy and the homework, quiz, and test grades I received,
          * what marking period grade will I get?
+         *
+         *
+         *
          */
 
         int homework1 = 88;
@@ -75,6 +86,19 @@ public class ProblemSet1 {
         int test2 = 87;
         int test3 = 82;
 
+        final double homeworkWeight = 0.15;
+        final double quizWeight = 0.35;
+        final double testWeight = 0.50;
+        NumberFormat percentFormat = NumberFormat.getPercentInstance();
+        percentFormat.setMinimumFractionDigits(2);
+        double homeworkGrade = ((homework1 + homework2 + homework3) / 3) * homeworkWeight; //Should be
+        double quizGrade = ((quiz1 + quiz2 + quiz3) / 3 ) * .15;
+        double testGrade = ((test1 + test2 + test3) / 3) * .15;
+        System.out.println(homeworkGrade);
+        //double markingPeriodGrade = (homeworkWeight * homeworkAverage) + (quizWeight * quizAverage) + (testWeight * testAverage);
+        //System.out.println(defaultFormat.format(markingPeriodGrade));
+
+
 
 
         /*
@@ -82,7 +106,23 @@ public class ProblemSet1 {
          *
          * I make $12.50/hour working as a cashier at a local supermarket. How much money
          * will I make this week?
+         *
+         * SOLVED
+         *
          */
+
+         final double hourlyWage = 12.5;
+         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
+         double mondayHours = 7.5;
+         double tuesdayHours = 8;
+         double wednesdayHours = 10.5;
+         double thursdayHours = 9.5;
+         double fridayHours = 6;
+         double saturdayHours = 11.5;
+         double sundayHours = 0;
+         double totalHours = mondayHours + tuesdayHours + wednesdayHours + thursdayHours + fridayHours + saturdayHours + sundayHours;
+         double payment = totalHours * hourlyWage;
+         System.out.println(currencyFormat.format(payment) + ".");
 
 
 
