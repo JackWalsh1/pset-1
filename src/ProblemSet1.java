@@ -14,8 +14,8 @@
 
  //Any abbreviations (ex. aIM) should be referenced above for meaning (areaInMillimeters).
 
-import java.text.NumberFormat;
 import java.lang.Math;
+import java.text.NumberFormat;
 
 public class ProblemSet1 {
 
@@ -30,10 +30,12 @@ public class ProblemSet1 {
          *
          */
 
-         final double lengthPaper = 8.5;
-         final double widthPaper = 11;
-         final double inchToMillimeters = 25.4;
-         final double area = lengthPaper * widthPaper * Math.pow(inchToMillimeters, 2);
+         final double LENGTH_PAPER = 8.5;
+         final double WIDTH_PAPER = 11;
+         final double INCH_TO_MILLIMETERS = 25.4;
+
+         double area = LENGTH_PAPER * WIDTH_PAPER * Math.pow(INCH_TO_MILLIMETERS, 2);
+
          System.out.printf("\n%,.2f %s\n", area, "square millimeters.");
          /*First portion is formatting the variable (area by "\n%,.2f")
          and second portion is formatting string ("square millimeters" by %s).*/
@@ -48,8 +50,10 @@ public class ProblemSet1 {
          */
 
          //Using length / width of Exercise 1.
-         final double inchToCentimeters = 2.54;
-         final double perimeter = inchToCentimeters * ((2*lengthPaper) + (2*widthPaper));
+         final double INCH_TO_CENTIMETERS = 2.54;
+
+         double perimeter = INCH_TO_CENTIMETERS * ((2*LENGTH_PAPER) + (2*WIDTH_PAPER));
+
          System.out.printf("\n%,.2f %s\n", perimeter, "centimeters.");
 
         /*
@@ -63,7 +67,8 @@ public class ProblemSet1 {
          */
 
          //Using length / width of Exercise 1.
-         final double hypotenuse = Math.sqrt(Math.pow(lengthPaper, 2) + Math.pow(widthPaper, 2));
+         double hypotenuse = Math.sqrt(Math.pow(LENGTH_PAPER, 2) + Math.pow(WIDTH_PAPER, 2));
+
          System.out.printf("\n%.2f %s\n", hypotenuse, "inches." );
 
         /*
@@ -86,15 +91,18 @@ public class ProblemSet1 {
         int test2 = 87;
         int test3 = 82;
 
-        final double homeworkWeight = 0.15;
-        final double quizWeight = 0.35;
-        final double testWeight = 0.50;
+        final double HOMEWORK_WEIGHT = 0.15;
+        final double QUIZ_WEIGHT = 0.35;
+        final double TEST_WEIGHT = 0.50;
+
         NumberFormat percentFormat = NumberFormat.getPercentInstance();
         percentFormat.setMinimumFractionDigits(2);
+
         double homeworkTotal = (homework1 + homework2 + homework3); //Should be
         double quizTotal = (quiz1 + quiz2 + quiz3);
         double testTotal = (test1 + test2 + test3);
-        double markingPeriodGrade = ((homeworkTotal / 3) * homeworkWeight)  + ((quizTotal / 3) * quizWeight) + ((testTotal / 3) * testWeight);
+        double markingPeriodGrade = ((homeworkTotal / 3) * HOMEWORK_WEIGHT)  + ((quizTotal / 3) * QUIZ_WEIGHT) + ((testTotal / 3) * TEST_WEIGHT);
+
         System.out.println("\n" + percentFormat.format(markingPeriodGrade / 100));
 
 
@@ -109,9 +117,9 @@ public class ProblemSet1 {
          * SOLVED
          *
          */
-
-         final double hourlyWage = 12.5;
          NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
+
+         final double HOURLY_WAGE = 12.5;
          double mondayHours = 7.5;
          double tuesdayHours = 8;
          double wednesdayHours = 10.5;
@@ -119,8 +127,10 @@ public class ProblemSet1 {
          double fridayHours = 6;
          double saturdayHours = 11.5;
          double sundayHours = 0;
+
          double totalHours = mondayHours + tuesdayHours + wednesdayHours + thursdayHours + fridayHours + saturdayHours + sundayHours;
-         double payment = totalHours * hourlyWage;
+         double payment = totalHours * HOURLY_WAGE;
+
          System.out.println("\n" + currencyFormat.format(payment) + ".");
 
         /*
@@ -133,13 +143,15 @@ public class ProblemSet1 {
          */
 
          //Using above formatting for currency.
-         final double salaryPerYear = 117000;
-         final double federalTaxRate = .24;
-         final double stateTaxRate = .0637;
-         final double preTax401Rate = .07;
-         double salaryPerCheck = 117000 / 24;
-         double preTaxSalary = (salaryPerCheck - (salaryPerCheck * preTax401Rate));
-         double takeHomePay = preTaxSalary * (1 - federalTaxRate) * (1 - stateTaxRate);
+         final double SALARY_PER_YEAR = 117000;
+         final double FEDERAL_TAX_RATE = .24;
+         final double STATE_TAX_RATE = .0637;
+         final double PRE_TAX_401_RATE = .07;
+
+         double salaryPerCheck = SALARY_PER_YEAR / 24;
+         double preTaxSalary = (salaryPerCheck - (salaryPerCheck * PRE_TAX_401_RATE));
+         double takeHomePay = preTaxSalary * (1 - FEDERAL_TAX_RATE) * (1 - STATE_TAX_RATE);
+
          System.out.println("\n" + currencyFormat.format(takeHomePay) + ".");
 
         /*
@@ -152,12 +164,14 @@ public class ProblemSet1 {
          *
          */
 
-         final int students = 273;
-         final int teachers = 28;
-         final int busCapacity = 54;
-         int totalPeople = students + teachers;
-         int totalBuses = (totalPeople / busCapacity) + 1; //An additional bus is needed because totalPeople/54 is not an integer.
-         int lastBusPassengerCount = totalPeople % busCapacity;
+         final int STUDENTS = 273;
+         final int TEACHERS = 28;
+         final int BUS_CAPACITY = 54;
+
+         int totalPeople = STUDENTS + TEACHERS;
+         int totalBuses = (totalPeople / BUS_CAPACITY) + 1; //An additional bus is needed because totalPeople/54 is not an integer.
+         int lastBusPassengerCount = totalPeople % BUS_CAPACITY;
+
          System.out.println("\n" + totalBuses + " buses are needed, with " + lastBusPassengerCount + " passengers on the last bus.");
 
         /*
@@ -169,10 +183,12 @@ public class ProblemSet1 {
          *
          */
 
-         final double lengthCornhole = 24;
-         final double widthCornhole = 48;
-         final double diameterCornhole = 6;
-         double surfaceArea = (lengthCornhole * widthCornhole) - (Math.PI * Math.pow((diameterCornhole / 2), 2));
+         final double LENGTH_CORNHOLE = 24;
+         final double WIDTH_CORNHOLE = 48;
+         final double DIAMETER_CORNHOLE = 6;
+
+         double surfaceArea = (LENGTH_CORNHOLE * WIDTH_CORNHOLE) - (Math.PI * Math.pow((DIAMETER_CORNHOLE / 2), 2));
+
          System.out.printf("\n%.2f %s\n", surfaceArea, "square inches." );
 
         /*
@@ -180,24 +196,21 @@ public class ProblemSet1 {
          *
          * Are the years 2020, 2100, and 2400 leap years?
          *
-         *
+         * SOLVED
          *
          */
 
-         int year;
-         boolean leapYear;
-
-         year = 2020;
-         leapYear = true;
-         System.out.println("\n" + year + " is a leap year..." + leapYear + ".");
+         int year = 2020;
+         boolean isLeapYear = ((year % 4) == 0) && ((year % 100) != 0) || ((year % 400) == 0);
+         System.out.println("\n" + year + " is a leap year..." + isLeapYear + ".");
 
          year = 2100;
-         leapYear = false;
-         System.out.println(year + " is a leap year..." + leapYear + ".");
+         isLeapYear = ((year % 4) == 0) && ((year % 100) != 0) || ((year % 400) == 0);
+         System.out.println(year + " is a leap year..." + isLeapYear + ".");
 
          year = 2400;
-         leapYear = true;
-         System.out.println(year + " is a leap year..." + leapYear + ".");
+         isLeapYear = ((year % 4) == 0) && ((year % 100) != 0) || ((year % 400) == 0);
+         System.out.println(year + " is a leap year..." + isLeapYear + ".");
         /*
          * Exercise 10.
          *
@@ -211,8 +224,6 @@ public class ProblemSet1 {
          double windSpeed = 14;
          double windChill = 35.74 + (.6215 * temperature) + (((.4275 * temperature) - 35.75) * Math.pow(windSpeed, .16));
          System.out.printf("\n%.1f %s\n", windChill, "degrees." );
-
-
 
     }
 }
