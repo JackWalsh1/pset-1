@@ -30,10 +30,10 @@ public class ProblemSet1 {
          *
          */
 
-         final double length = 8.5;
-         final double width = 11;
+         final double lengthPaper = 8.5;
+         final double widthPaper = 11;
          final double inchToMillimeters = 25.4;
-         final double area = length * width * Math.pow(inchToMillimeters, 2);
+         final double area = lengthPaper * widthPaper * Math.pow(inchToMillimeters, 2);
          System.out.printf("\n%,.2f %s\n", area, "square millimeters.");
          /*First portion is formatting the variable (area by "\n%,.2f")
          and second portion is formatting string ("square millimeters" by %s).*/
@@ -49,7 +49,7 @@ public class ProblemSet1 {
 
          //Using length / width of Exercise 1.
          final double inchToCentimeters = 2.54;
-         final double perimeter = inchToCentimeters * ((2*length) + (2*width));
+         final double perimeter = inchToCentimeters * ((2*lengthPaper) + (2*widthPaper));
          System.out.printf("\n%,.2f %s\n", perimeter, "centimeters.");
 
         /*
@@ -63,7 +63,7 @@ public class ProblemSet1 {
          */
 
          //Using length / width of Exercise 1.
-         final double hypotenuse = Math.sqrt(Math.pow(length, 2) + Math.pow(width, 2));
+         final double hypotenuse = Math.sqrt(Math.pow(lengthPaper, 2) + Math.pow(widthPaper, 2));
          System.out.printf("\n%.2f %s\n", hypotenuse, "inches." );
 
         /*
@@ -164,23 +164,53 @@ public class ProblemSet1 {
          * Exercise 8.
          *
          * What is the surface area of a standard Cornhole board?
+         *
+         * SOLVED
+         *
          */
 
-
+         final double lengthCornhole = 24;
+         final double widthCornhole = 48;
+         final double diameterCornhole = 6;
+         double surfaceArea = (lengthCornhole * widthCornhole) - (Math.PI * Math.pow((diameterCornhole / 2), 2));
+         System.out.printf("\n%.2f %s\n", surfaceArea, "square inches." );
 
         /*
          * Exercise 9.
          *
          * Are the years 2020, 2100, and 2400 leap years?
+         *
+         *
+         *
          */
 
+         int year;
+         boolean leapYear;
 
+         year = 2020;
+         leapYear = true;
+         System.out.println("\n" + year + " is a leap year..." + leapYear + ".");
 
+         year = 2100;
+         leapYear = false;
+         System.out.println(year + " is a leap year..." + leapYear + ".");
+
+         year = 2400;
+         leapYear = true;
+         System.out.println(year + " is a leap year..." + leapYear + ".");
         /*
          * Exercise 10.
          *
          * What is the wind chill?
+         *
+         * SOLVED
+         *
          */
+
+         double temperature = 38;
+         double windSpeed = 14;
+         double windChill = 35.74 + (.6215 * temperature) + (((.4275 * temperature) - 35.75) * Math.pow(windSpeed, .16));
+         System.out.printf("\n%.1f %s\n", windChill, "degrees." );
 
 
 
